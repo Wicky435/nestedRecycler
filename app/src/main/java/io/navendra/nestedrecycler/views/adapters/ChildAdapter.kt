@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import io.navendra.nestedrecycler.R
@@ -25,15 +26,18 @@ class ChildAdapter(private val children : List<ChildModel>)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val child = children[position]
-        holder.imageView.setImageResource(child.image)
-        holder.textView.text = child.title
+        //holder.imageButton.setImageResource(child.image)
+        holder.titleTextView.text = child.title
+        holder.valueTextView.text = child.title
     }
 
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
-        val textView : TextView = itemView.child_textView
-        val imageView: ImageView = itemView.child_imageView
+        val titleTextView : TextView = itemView.title
+        //val imageView: ImageView = itemView.child_imageView
+        val valueTextView : TextView = itemView.parameter
+        val imageButton : ImageButton = itemView.edit_param
 
     }
 }
